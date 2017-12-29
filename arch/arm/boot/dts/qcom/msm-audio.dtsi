@@ -333,7 +333,7 @@
 			"MIC BIAS Internal1", "Secondary Mic",
 			"AMIC1", "MIC BIAS External",
 			"AMIC2", "MIC BIAS Internal2",
-			"AMIC3", "MIC BIAS Internal1";
+			"AMIC3", "MIC BIAS External";
 
 
 		qcom,hdmi-dba-codec-rx;
