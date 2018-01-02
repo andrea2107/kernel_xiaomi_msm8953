@@ -1,8 +1,8 @@
-//original script by psy_man , no credits belong to me
-//if you are editing this,remember to change defconfig!
+#original script by psy_man , no credits belong to me
+#if you are editing this,remember to change defconfig!
 
 KERNEL_DIR=$PWD
-$DEVICENAME="mido"
+DEVICENAME="mido"
 ANYKERNEL_DIR=$KERNEL_DIR/AnyKernel2
 DTBTOOL=$KERNEL_DIR/dtbTool
 CCACHEDIR=../CCACHE/scorpio
