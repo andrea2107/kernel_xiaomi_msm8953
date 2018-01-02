@@ -2,10 +2,10 @@
 #if you are editing this,remember to change defconfig!
 
 KERNEL_DIR=$PWD
-#DEVICENAME="mido"
+DEVICENAME="mido"
 ANYKERNEL_DIR=$KERNEL_DIR/AnyKernel2
 DTBTOOL=$KERNEL_DIR/dtbTool
-CCACHEDIR=../CCACHE/mido
+CCACHEDIR=../CCACHE/scorpio
 TOOLCHAINDIR=~/toolchain/aarch64-linux-android-5.3
 DATE=$(date +"%d%m%Y")
 KERNEL_NAME="Lasagna-Kernel"
@@ -14,7 +14,7 @@ VER="-v0.1-"
 TYPE="Oreo"
 FINAL_ZIP="$KERNEL_NAME""$DEVICE""$DATE""$VER""$TYPE".zip
 
-rm -rf $ANYKERNEL_DIR/mido/*.ko && rm $ANYKERNEL_DIR/mido/zImage $ANYKERNEL_DIR/mido/dtb
+rm -rf $ANYKERNEL_DIR/$DEVICENAME/*.ko && rm $ANYKERNEL_DIR/$DEVICENAME/zImage $ANYKERNEL_DIR/$DEVICENAME/dtb
 rm $KERNEL_DIR/arch/arm64/boot/Image.gz $KERNEL_DIR/arch/arm64/boot/dt.img $KERNEL_DIR/arch/arm64/boot/Image.gz-dtb
 
 if [ ! -d "$TOOLCHAINDIR" ]; then
@@ -38,5 +38,5 @@ make mido_defconfig
 make -j$( nproc --all )
 
 ./dtbTool -s 2048 -o arch/arm64/boot/dt.img -p scripts/dtc/ arch/arm/boot/dts/qcom/
-cd $ANYKERNEL_DIR/mido
+cd $ANYKERNEL_DIR/$DEVICENAME
 zip -r9 $FINAL_ZIP * -x *.zip $FINAL_ZIP
