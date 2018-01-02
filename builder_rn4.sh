@@ -38,18 +38,5 @@ make mido_defconfig
 make -j$( nproc --all )
 
 ./dtbTool -s 2048 -o arch/arm64/boot/dt.img -p scripts/dtc/ arch/arm/boot/dts/qcom/
-cp $KERNEL_DIR/arch/arm64/boot/dt.img $ANYKERNEL_DIR/$DEVICENAME/dtb
-cp $KERNEL_DIR/arch/arm64/boot/Image.gz $ANYKERNEL_DIR/$DEVICENAME/zImage
-cp $KERNEL_DIR/drivers/staging/qcacld-2.0/wlan.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/drivers/char/hw_random/msm_rng.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/drivers/char/hw_random/rng-core.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/drivers/char/rdbg.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/drivers/spi/spidev.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/drivers/input/evbug.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/crypto/ansi_cprng.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/drivers/mmc/card/mmc_test.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/drivers/video/backlight/lcd.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/drivers/video/backlight/backlight.ko $ANYKERNEL_DIR/$DEVICENAME/
-cp $KERNEL_DIR/drivers/video/backlight/generic_bl.ko $ANYKERNEL_DIR/$DEVICENAME/
 cd $ANYKERNEL_DIR/$DEVICENAME
 zip -r9 $FINAL_ZIP * -x *.zip $FINAL_ZIP
