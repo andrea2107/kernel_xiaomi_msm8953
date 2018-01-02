@@ -38,5 +38,9 @@ make mido_defconfig
 make -j$( nproc --all )
 
 ./dtbTool -s 2048 -o arch/arm64/boot/dt.img -p scripts/dtc/ arch/arm/boot/dts/qcom/
+cp $KERNEL_DIR/arch/arm64/boot/dt.img $ANYKERNEL_DIR/$DEVICENAME/dtb
+cp $KERNEL_DIR/arch/arm64/boot/Image.gz $ANYKERNEL_DIR/$DEVICENAME/zImage
+
 cd $ANYKERNEL_DIR/$DEVICENAME
+
 zip -r9 $FINAL_ZIP * -x *.zip $FINAL_ZIP
